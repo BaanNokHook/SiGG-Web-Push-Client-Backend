@@ -1,0 +1,7 @@
+/dist
+/node_modules
+/.vscode
+/.history
+/docs
+.DS_Store
+./history

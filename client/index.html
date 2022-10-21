@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Push Notifications using Node.js and Web Push</title>
+  <link rel="icon" type="image/png" href="https://d2cy1obokpvee9.cloudfront.net/manifest/favicon-196x196.png"
+    sizes="196x196" class="next-head">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://js.pusher.com/beams/1.0/push-notifications-cdn.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Web Push Notifications Demo</h1>
+  </header>
+
+  <div class="buttons">
+    <button id="btnSub" class="trigger-push">Subscribe</button>
+    <button id="btnUnsub" class="trigger-push">Unsubscribe</button>
+  </div>
+  <script src="main.js"></script>
+  <script>
+    // Listen to the response
+    broadcast.onmessage = (e) => {
+      console.log(e.data.payload);
+      if (e.data && e.data.type === 'TXN_ID_RECEIVED') {
+        // broadcast.postMessage({ type: 'VALIDATE_TXN', payload: { txnId: e.data.payload.txnId } });
+      }
+    };
+
+    let worker = new Worker("web-worker.js");
+  </script>
+</body>
+
+</html>
